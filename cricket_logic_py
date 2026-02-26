@@ -1,0 +1,36 @@
+# Cricket Run Calculator
+total_overs = int(input("Enter total overs: "))
+target = int(input("Enter target runs: "))
+current_runs = int(input("Enter current runs: "))
+current_over = input("Enter current over (format: overs.balls, example 12.3): ")
+
+
+# Split overs and balls
+overs_part = int(current_over.split('.')[0])
+balls_part = int(current_over.split('.')[1])
+
+# Calculate total balls
+total_balls = total_overs * 6
+
+# Calculate balls bowled
+balls_bowled = (overs_part * 6) + balls_part
+
+# Remaining balls
+balls_remaining = total_balls - balls_bowled
+
+# Runs needed
+runs_needed = target - current_runs
+
+print("\n--- Match Situation ---")
+
+if runs_needed <= 0:
+    print("Target achieved! 🎉")
+else:
+    print(f"Runs needed: {runs_needed}")
+    print(f"Balls remaining: {balls_remaining}")
+
+    if balls_remaining > 0:
+        required_run_rate = (runs_needed / balls_remaining) * 6
+        print(f"Required Run Rate: {required_run_rate:.2f}")
+    else:
+        print("No balls remaining.")
