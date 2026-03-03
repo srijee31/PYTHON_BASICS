@@ -1,0 +1,22 @@
+#🔐 OTP Verification System
+
+import random
+# 4 digit OTP generator
+length = 4
+otp = ""
+for _ in range(length):
+    otp += str(random.randint(0, 9))
+print(f"Your OTP is: {otp}")
+attempts = 3
+
+while attempts > 0:
+    user_input = input("Enter the OTP: ")
+    if user_input == str(otp):
+        print("Login Successful!")
+        break
+    else:
+        attempts -= 1
+        if attempts > 0:
+            print(f"Wrong OTP! You have {attempts} attempts left.")
+        else:
+            print("You have entered wrong OTP for 3 time, Account Locked!")    
